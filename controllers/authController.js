@@ -64,7 +64,7 @@ const auth_login = async (req, res) => {
             const isPasswordMatch = await bcrypt.compare(req.body.password,checkLogin.password)
             if (isPasswordMatch) {
                 // mã hóa
-                const token = jwt.sign({ id: checkLogin._id }, "key", {
+                const token = jwt.sign({ id: checkLogin._id }, "khoa-cua-ban", {
                     expiresIn: "1d",
                   });
                 return res.status(200).json({
